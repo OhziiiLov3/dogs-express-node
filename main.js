@@ -1,6 +1,7 @@
 // Express JS
 //  Load express from node_modules
 const express = require("express");
+
 // create express app -> creates object from express function
 const app = express()
 
@@ -10,27 +11,19 @@ const PORT = 4000;
 app.set('view engine', 'ejs')
 
 // Import Models
-const dogs = require('./models/dog_model')
+
+const dogController = require("./controllers/dog_controller");
+app.use('', dogController)
 
 /* === Routes === */
 
 
-app.get('/', function (req,res) {
-    res.send(`
-    <h1>Hello World</h1>
-    <h2>${dogs[0]}</h2>
-    <h2>${dogs[1]}</h2>
-    <h2>${dogs[2]}</h2>`)
-})
-// 
-app.get('/dogs/:dogIndex', (req,res) => {
-    // res.send(dogs[req.params.dogIndex])
-    res.render('show.ejs',{oneDog: dogs[req.params.dogIndex]})
-})
 
-app.get('/dogs/',(req,res)=>{
-    res.send(dogs)
-})
+
+
+// app.get('/dogs/',(req,res)=>{
+//     res.send(dogs)
+// })
 
 // routes/controllers -> /greetings?firstName=Zooty&lastName=World
 app.get('/greetings', (req, res) => {

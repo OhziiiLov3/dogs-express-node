@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogs Express</title>
+</head>
+<body>
+    <h1>Home</h1>
+        <a href="/">Dogs</a>
+        <a href="/dogs/new">Add New Dog</a>
+        
+<% if(!allDogs.length){ %>
+    <p>You have no dogs!</p>
+    <% } %>
+
+    
+    <% allDogs.forEach((dog, index)=> { %>
+    
+            <img href="/dogs/<%= index %>">
+            <h2><%= dog.name %></h2>
+            <img src=<%=dog.pic %> alt="Dog picture">
+            <h3><%= dog.readyToEat %></h3>
+            <a href="/dogs/<%=index %>">View More</a>
+                    
+       
+                <% }); %>
+           
+
+      
+       
+</body>
+</html>
